@@ -1,0 +1,8 @@
+[package]
+name = "rustwasmhello"
+version = "0.1.0"
+edition = "2024"
+authors = ["Florian Kraft <schnuffifk@gmail.com>"]
+
+[lib]
+crate-type = ["cdylib"]
