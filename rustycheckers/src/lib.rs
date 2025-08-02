@@ -8,7 +8,7 @@ use game::GameEngine;
 use mut_static::MutStatic;
 
 lazy_static! {
-    pub static ref GAME_ENGINE: MutStatic<GameEngine> = { MutStatic::from(GameEngine::new()) };
+    pub static ref GAME_ENGINE: MutStatic<GameEngine> = MutStatic::from(GameEngine::new());
 }
 
 const PIECEFLAG_BLACK: u8 = 1;
@@ -31,6 +31,11 @@ impl Into<i32> for GamePiece {
     }
 }
 
+#[no_mangle]
+pub extern "C" fn get_current_turn() -> i32 {
+    let engine = GAME_ENGINE.read().unwrap();
+    GamePiece::new(engine.current_turn()).into()
+}
 #[no_mangle]
 pub extern "C" fn get_piece(x: i32, y: i32) -> i32 {
     let engine = GAME_ENGINE.read().unwrap();

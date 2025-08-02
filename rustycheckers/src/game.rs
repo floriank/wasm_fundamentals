@@ -100,6 +100,10 @@ impl GameEngine {
         }
     }
 
+    pub fn current_turn(&self) -> PieceColor {
+        self.current_turn
+    }
+
     pub fn move_count(&self) -> u32 {
         self.move_count
     }
