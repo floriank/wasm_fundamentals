@@ -74,4 +74,14 @@ impl Engine {
             self.display.draw(k.x, k.y, v);
         }
     }
+
+    pub fn place_box(&mut self, x: i32, y: i32) {
+        let pt = GridPoint { x, y };
+        self.points.insert(pt, ".".to_owned());
+    }
+    pub fn mark_wasm_prize(&mut self, x: i32, y: i32) {
+        let prize = GridPoint { x, y };
+        self.prize_location = Some(prize.clone());
+        self.points.insert(prize, "x".to_owned());
+    }
 }
