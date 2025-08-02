@@ -1,1 +1,4 @@
-out
+out/wasm
+out/bind*
+out/dist
+out/node_modules
